@@ -14,6 +14,7 @@ export class UserDetailComponent implements OnInit {
    * @var user {User} - Input tulajdonság
    * @default új User
    */
+  @Input() user = new User;
 
 
   @Output() delUser: EventEmitter<User> = new EventEmitter();
@@ -31,6 +32,8 @@ export class UserDetailComponent implements OnInit {
    * @param user {User} - az aktuális felhasználó
    * @returns {void}
    */
-
+  onDelete(user: string): void {
+    this.delUser.emit(this.user);
+  }
 
 }
